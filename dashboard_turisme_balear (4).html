@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sota la superfície del turisme balear</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --blue: #1a3a5c; --blue-light: #e8f0f7; --accent: #c8985a;
+    --text: #1c1c1c; --text-muted: #6b7280; --border: #d1dce8;
+    --bg: #f5f7fa; --white: #ffffff;
+  }
+  body { font-family: 'Source Sans 3', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
+  header { background: var(--blue); padding: 3rem 2.5rem 2.5rem; position: relative; overflow: hidden; }
+  header::before { content: ''; position: absolute; top: -60px; right: -60px; width: 300px; height: 300px; border-radius: 50%; background: rgba(200,152,90,0.12); pointer-events: none; }
+  .header-tag { display: inline-block; font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; }
+  header h1 { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem,4vw,2.8rem); font-weight: 600; color: #fff; line-height: 1.2; margin-bottom: 0.75rem; max-width: 700px; }
+  header p { font-size: 14px; color: rgba(255,255,255,0.65); max-width: 620px; line-height: 1.6; font-weight: 300; }
+  .header-meta { display: flex; gap: 2rem; margin-top: 1.75rem; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.12); flex-wrap: wrap; }
+  .meta-item { font-size: 12px; color: rgba(255,255,255,0.5); font-weight: 300; }
+  .meta-item strong { display: block; font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.85); margin-bottom: 2px; }
+  main { max-width: 1380px; margin: 0 auto; padding: 2.5rem 2rem; }
+  .section-label { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.25rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border); }
+  .grid-2 { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 1.5rem; margin-bottom: 1.5rem; }
+  .grid-1 { margin-bottom: 1.5rem; }
+  .card { background: var(--white); border: 1px solid var(--border); border-radius: 6px; overflow: hidden; }
+  .card-header { padding: 1rem 1.25rem 0.875rem; border-bottom: 1px solid var(--border); display: flex; align-items: flex-start; gap: 0.875rem; }
+  .card-num { display: flex; align-items: center; justify-content: center; width: 28px; height: 28px; min-width: 28px; background: var(--blue-light); color: var(--blue); font-size: 11px; font-weight: 600; border-radius: 4px; margin-top: 1px; }
+  .card-meta { flex: 1; }
+  .card-topic { font-size: 10px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 3px; }
+  .card-title { font-family: 'Playfair Display', serif; font-size: 15px; font-weight: 400; color: var(--text); line-height: 1.35; }
+  .card-body { padding: 0.75rem 1rem; }
+  footer { background: var(--white); border-top: 1px solid var(--border); padding: 1.5rem 2.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+  footer p { font-size: 12px; color: var(--text-muted); line-height: 1.5; }
+  footer .note { font-size: 11px; color: var(--text-muted); font-style: italic; max-width: 400px; text-align: right; }
+  @media (max-width: 768px) { .grid-2 { grid-template-columns: 1fr; } header { padding: 2rem 1.5rem; } main { padding: 1.5rem 1rem; } footer .note { text-align: left; } }
+</style>
+</head>
+<body>
+
+<header>
+  <span class="header-tag">Illes Balears · 2022–2025</span>
+  <h1>Sota la superfície del turisme balear</h1>
+  <p>Pressió, estacionalitat i distribució territorial del turisme internacional a escala municipal. A partir de l'estadística experimental de l'INE: <em>Medición del turismo a partir de teléfonos móviles</em>.</p>
+  <div class="header-meta">
+    <div class="meta-item"><strong>Font</strong>INE · Telèfons mòbils</div>
+    <div class="meta-item"><strong>Àmbit</strong>67 municipis · Illes Balears</div>
+    <div class="meta-item"><strong>Període</strong>2022–2025</div>
+    <div class="meta-item"><strong>Elaboració</strong>DG d'Economia i Estadística · CAIB</div>
+  </div>
+</header>
+
+<main>
+  <p class="section-label">Distribució territorial i creixement</p>
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-num">01</div>
+        <div class="card-meta">
+          <p class="card-topic">Creixement · Mapa</p>
+          <p class="card-title">Quins municipis lideren la recuperació turística post-COVID?</p>
+        </div>
+      </div>
+      <div class="card-body">
+        <iframe title="Quins municipis lideren la recuperació turística post-COVID?" aria-label="Choropleth map" id="datawrapper-chart-eCczc" src="https://datawrapper.dwcdn.net/eCczc/2/" scrolling="no" frameborder="0" style="width:0;min-width:100%!important;border:none;" height="634" data-external="1"></iframe>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <div class="card-num">02</div>
+        <div class="card-meta">
+          <p class="card-topic">Pressió · Mapa</p>
+          <p class="card-title">Quins municipis suporten més turistes en relació a la seva població?</p>
+        </div>
+      </div>
+      <div class="card-body">
+        <iframe title="Quins municipis suporten més turistes en relació a la seva població?" aria-label="Choropleth map" id="datawrapper-chart-QOu4Q" src="https://datawrapper.dwcdn.net/QOu4Q/2/" scrolling="no" frameborder="0" style="width:0;min-width:100%!important;border:none;" height="662" data-external="1"></iframe>
+      </div>
+    </div>
+  </div>
+
+  <p class="section-label">Competitivitat i posició relativa</p>
+  <div class="grid-1">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-num">03</div>
+        <div class="card-meta">
+          <p class="card-topic">Diferencial de creixement · Mapa</p>
+          <p class="card-title">Quins municipis creixen per sobre de la tendència de la seva illa?</p>
+        </div>
+      </div>
+      <div class="card-body">
+        <iframe title="Quins municipis creixen per sobre de la tendència de la seva illa?" aria-label="Choropleth map" id="datawrapper-chart-yQZkx" src="https://datawrapper.dwcdn.net/yQZkx/2/" scrolling="no" frameborder="0" style="width:0;min-width:100%!important;border:none;" height="662" data-external="1"></iframe>
+      </div>
+    </div>
+  </div>
+
+  <p class="section-label">Estacionalitat i diversificació</p>
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-num">04</div>
+        <div class="card-meta">
+          <p class="card-topic">Estacionalitat · Dispersió</p>
+          <p class="card-title">Quins municipis han avançat en desestacionalització?</p>
+        </div>
+      </div>
+      <div class="card-body">
+        <iframe title="Quins municipis han avançat en desestacionalització?" aria-label="Scatter Plot" id="datawrapper-chart-JLl21" src="https://datawrapper.dwcdn.net/JLl21/5/" scrolling="no" frameborder="0" style="width:0;min-width:100%!important;border:none;" height="479" data-external="1"></iframe>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <div class="card-num">05</div>
+        <div class="card-meta">
+          <p class="card-topic">Diversificació · Dispersió</p>
+          <p class="card-title">Quina és la dependència dels municipis dels seus principals mercats emissors?</p>
+        </div>
+      </div>
+      <div class="card-body">
+        <iframe title="Quina és la dependència dels municipis dels seus principals mercats emissors?" aria-label="Scatter Plot" id="datawrapper-chart-YBjz3" src="https://datawrapper.dwcdn.net/YBjz3/4/" scrolling="no" frameborder="0" style="width:0;min-width:100%!important;border:none;" height="500" data-external="1"></iframe>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <p>Elaboració: DG d'Economia i Estadística · CAIB · 2025<br>Font: INE – Medición del turismo a partir de teléfonos móviles (estadística experimental)</p>
+  <p class="note">Els gràfics són interactius. Passa el cursor pels municipis per veure el detall de cada indicador.</p>
+</footer>
+
+<script type="text/javascript">
+window.addEventListener("message", function(a) {
+  if (void 0 !== a.data["datawrapper-height"]) {
+    var e = document.querySelectorAll("iframe");
+    for (var t in a.data["datawrapper-height"])
+      for (var r, i = 0; r = e[i]; i++)
+        if (r.contentWindow === a.source) {
+          r.style.height = a.data["datawrapper-height"][t] + "px";
+        }
+  }
+});
+</script>
+</body>
+</html>
