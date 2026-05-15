@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="ca" xmlns:mso="urn:schemas-microsoft-com:office:office" xmlns:msdt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Actualitat econòmica en una ullada · DG Economia i Estadística · CAIB</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --blue: #004b99;
+    --blue-mid: #1a6abf;
+    --blue-light: #e6eef8;
+    --blue-pale: #f0f5fb;
+    --accent: #c8985a;
+    --accent-light: #f5ede0;
+    --text: #1c1c1c;
+    --text-muted: #6b7280;
+    --border: #d1dce8;
+    --bg: #f5f7fa;
+    --white: #ffffff;
+  }
+  body { font-family: 'Source Sans 3', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
+
+  header {
+    background: var(--blue);
+    padding: 3rem 2.5rem 2.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+  header::before {
+    content: '';
+    position: absolute;
+    top: -80px; right: -80px;
+    width: 360px; height: 360px;
+    border-radius: 50%;
+    background: rgba(200,152,90,0.10);
+    pointer-events: none;
+  }
+  header::after {
+    content: '';
+    position: absolute;
+    bottom: -40px; left: 30%;
+    width: 200px; height: 200px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.03);
+    pointer-events: none;
+  }
+  .header-tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1rem;
+  }
+  header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+    font-weight: 600;
+    color: #fff;
+    line-height: 1.2;
+    margin-bottom: 0.6rem;
+    max-width: 640px;
+  }
+  header p {
+    font-size: 14px;
+    color: rgba(255,255,255,0.60);
+    max-width: 580px;
+    line-height: 1.6;
+    font-weight: 300;
+  }
+  .header-meta {
+    display: flex;
+    gap: 2rem;
+    margin-top: 1.75rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255,255,255,0.10);
+    flex-wrap: wrap;
+  }
+  .meta-item { font-size: 12px; color: rgba(255,255,255,0.45); font-weight: 300; }
+  .meta-item strong { display: block; font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.80); margin-bottom: 2px; }
+
+  main { max-width: 1200px; margin: 0 auto; padding: 2.5rem 2rem 4rem; }
+
+  .filters {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .filter-label { font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); margin-right: 0.5rem; }
+  .filter-btn {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 0.3rem 0.85rem;
+    border-radius: 20px;
+    border: 1px solid var(--border);
+    background: var(--white);
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: all 0.15s;
+    letter-spacing: 0.02em;
+  }
+  .filter-btn:hover { border-color: var(--blue); color: var(--blue); }
+  .filter-btn.active { background: var(--blue); color: #fff; border-color: var(--blue); }
+
+  .section-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 1.25rem;
+    margin-bottom: 3rem;
+  }
+
+  .card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: box-shadow 0.2s, transform 0.2s;
+    text-decoration: none;
+    color: inherit;
+  }
+  .card:hover { box-shadow: 0 4px 20px rgba(26,58,92,0.10); transform: translateY(-2px); }
+
+  .card-band {
+    height: 4px;
+    background: var(--blue);
+  }
+  .card-band.energia { background: #c8985a; }
+  .card-band.turisme { background: #2c7a5e; }
+  .card-band.economia { background: #2c5282; }
+
+  .card-inner { padding: 1.25rem; flex: 1; display: flex; flex-direction: column; }
+
+  .card-tags { display: flex; gap: 0.4rem; margin-bottom: 0.875rem; flex-wrap: wrap; }
+  .tag {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.2rem 0.55rem;
+    border-radius: 3px;
+  }
+  .tag-tema { background: var(--blue-light); color: var(--blue); }
+  .tag-tema.energia { background: var(--accent-light); color: #7a5a28; }
+  .tag-tema.turisme { background: #e6f4ef; color: #1a5c42; }
+  .tag-live { background: #fef3e2; color: #92580a; }
+  .tag-definitiu { background: #eef6ff; color: #1e4d8c; }
+
+  .card-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.35;
+    color: var(--text);
+    margin-bottom: 0.6rem;
+  }
+  .card-desc {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.55;
+    font-weight: 300;
+    flex: 1;
+    margin-bottom: 1rem;
+  }
+
+  .card-footer {
+    border-top: 1px solid var(--border);
+    padding: 0.75rem 1.25rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .card-meta-bottom { font-size: 11px; color: var(--text-muted); line-height: 1.4; font-weight: 300; }
+  .card-meta-bottom strong { font-weight: 600; color: var(--text); display: block; }
+
+  .card-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--blue);
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .card-link svg { transition: transform 0.15s; }
+  .card-link:hover svg { transform: translateX(3px); }
+
+  .card.hidden { display: none; }
+
+  .empty-msg {
+    display: none;
+    font-size: 14px;
+    color: var(--text-muted);
+    padding: 2rem 0;
+  }
+
+  footer {
+    background: var(--white);
+    border-top: 1px solid var(--border);
+    padding: 1.5rem 2.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  footer p { font-size: 12px; color: var(--text-muted); line-height: 1.5; }
+  footer .note { font-size: 11px; color: var(--text-muted); font-style: italic; max-width: 380px; text-align: right; }
+
+  @media (max-width: 768px) {
+    header { padding: 2rem 1.5rem; }
+    main { padding: 1.5rem 1rem 3rem; }
+    .grid { grid-template-columns: 1fr; }
+    footer { flex-direction: column; align-items: flex-start; }
+    footer .note { text-align: left; }
+  }
+</style>
+
+<!--[if gte mso 9]><xml>
+<mso:CustomDocumentProperties>
+<mso:_dlc_DocId msdt:dt="string">NXEMYWP4CTEQ-757066276-328122</mso:_dlc_DocId>
+<mso:_dlc_DocIdItemGuid msdt:dt="string">2ad83c46-f66e-44fa-82b3-6ef018f8c007</mso:_dlc_DocIdItemGuid>
+<mso:_dlc_DocIdUrl msdt:dt="string">https://caib.sharepoint.com/sites/ARXIUS-OBSTRE/_layouts/15/DocIdRedir.aspx?ID=NXEMYWP4CTEQ-757066276-328122, NXEMYWP4CTEQ-757066276-328122</mso:_dlc_DocIdUrl>
+</mso:CustomDocumentProperties>
+</xml><![endif]-->
+</head>
+<body>
+
+<header>
+  <span class="header-tag">Direcció General d'Economia i Estadística</span>
+  <h1>Actualitat econòmica en una ullada</h1>
+  <p>Recull dels principals indicadors de l'economia de les Illes Balears.</p>
+  <div class="header-meta">
+    <div class="meta-item"><strong>Unitat</strong>DG d'Economia i Estadística</div>
+    <div class="meta-item"><strong>Actualitzat</strong>Maig 2026</div>
+  </div>
+</header>
+
+<main>
+
+  <div class="filters">
+    <span class="filter-label">Filtrar per</span>
+    <button class="filter-btn active" data-filter="tots" onclick="filtrar(this, 'tots')">Tots</button>
+    <button class="filter-btn" data-filter="turisme" onclick="filtrar(this, 'turisme')">Turisme</button>
+    <button class="filter-btn" data-filter="energia" onclick="filtrar(this, 'energia')">Energia</button>
+  </div>
+
+  <p class="section-label">Dashboards publicats</p>
+
+  <div class="grid" id="grid">
+
+    <div class="card" data-tema="turisme" data-tipus="definitiu">
+      <div class="card-band turisme"></div>
+      <div class="card-inner">
+        <div class="card-tags">
+          <span class="tag tag-tema turisme">Turisme</span>
+        </div>
+        <p class="card-title">Sota la superfície del turisme balear</p>
+        <p class="card-desc">Pressió, estacionalitat i distribució territorial del turisme internacional a escala municipal. 67 municipis · 2022–2025. A partir de l'estadística experimental de l'INE sobre telèfons mòbils.</p>
+      </div>
+      <div class="card-footer">
+        <div class="card-meta-bottom">
+          <strong>INE · Telèfons mòbils</strong>
+          Període 2022–2025
+        </div>
+        <a class="card-link" href="dashboard_turisme_balear.html" target="_blank">
+          Obrir
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="card" data-tema="energia" data-tipus="live">
+      <div class="card-band energia"></div>
+      <div class="card-inner">
+        <div class="card-tags">
+          <span class="tag tag-tema energia">Energia</span>
+        </div>
+        <p class="card-title">Indicadors d'energia elèctrica — Illes Balears</p>
+        <p class="card-desc">Cobertura del cable, mix de generació local, emissions i autoconsum. Dades mensuals de REE. Referència: març 2026. Sèrie des de 2019 (mix i emissions) i 2022 (autoconsum i demanda real).</p>
+      </div>
+      <div class="card-footer">
+        <div class="card-meta-bottom">
+          <strong>REE · Red Eléctrica de España</strong>
+          Ref. març 2026
+        </div>
+        <a class="card-link" href="dashboard_REE.html" target="_blank">
+          Obrir
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <p class="empty-msg" id="empty">Cap dashboard coincideix amb el filtre seleccionat.</p>
+
+</main>
+
+<footer>
+  <p>Elaboració: DG d'Economia i Estadística · Govern de les Illes Balears</p>
+</footer>
+
+<script>
+function filtrar(btn, filtre) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  const cards = document.querySelectorAll('.card');
+  let visibles = 0;
+  cards.forEach(card => {
+    const tema = card.dataset.tema;
+    const tipus = card.dataset.tipus;
+    let mostrar = false;
+    if (filtre === 'tots') mostrar = true;
+    else if (filtre === 'live') mostrar = tipus === 'live';
+    else mostrar = tema === filtre;
+    card.classList.toggle('hidden', !mostrar);
+    if (mostrar) visibles++;
+  });
+  document.getElementById('empty').style.display = visibles === 0 ? 'block' : 'none';
+}
+</script>
+
+</body>
+</html>
